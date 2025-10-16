@@ -18,12 +18,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
-from twitterBack import urls
+from django.http import JsonResponse  
 
 def home(request):
     return JsonResponse({"message": "API do Twitter Clone está online"})
-
 
 urlpatterns = [
     path('', home),
