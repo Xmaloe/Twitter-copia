@@ -21,7 +21,12 @@ from django.urls import path, include
 
 from twitterBack import urls
 
+def home(request):
+    return JsonResponse({"message": "API do Twitter Clone está online"})
+
+
 urlpatterns = [
+    path('', home),
     path('admin/', admin.site.urls),
     path('api/', include('twitterBack.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
