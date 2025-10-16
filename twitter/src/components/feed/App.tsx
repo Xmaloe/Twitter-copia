@@ -25,7 +25,7 @@ function App() {
       try {
         const [userRes, postsRes] = await Promise.all([
           axios.get(
-            `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`,
+            `${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`,
             {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,

@@ -34,7 +34,7 @@ function NewReply({
       try {
         await Promise.all([
           axios.post(
-            `${API_BASE_URL}/replies/`,
+            `${API_BASE_URL}replies/`,
             {
               username: state.userInfo?.username,
               userat: state.userInfo?.userat,
@@ -50,7 +50,7 @@ function NewReply({
             }
           ),
           axios.patch(
-            `${API_BASE_URL}/posts/${postId}/`,
+            `${API_BASE_URL}posts/${postId}/`,
             {
               comments: Number(state.postInfo?.comments) + 1,
             },
@@ -73,18 +73,18 @@ function NewReply({
     const fetchAsync = async () => {
       try {
         const [postRes, profileRes, userRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/posts/${postId}`, {
+          axios.get(`${API_BASE_URL}posts/${postId}`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
-          axios.get(`${API_BASE_URL}/profiles/${Number(userId)}`, {
+          axios.get(`${API_BASE_URL}profiles/${Number(userId)}`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
           axios.get(
-            `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}`,
+            `${API_BASE_URL}profiles/${localStorage.getItem("userId")}`,
             {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,

@@ -28,14 +28,14 @@ function ReplyModel({ comment }: Comment) {
       try {
         const [userRes, publisherRed] = await Promise.all([
           axios.get(
-            `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`,
+            `${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`,
             {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
             }
           ),
-          axios.get(`${API_BASE_URL}/profiles/${comment.user}/`, {
+          axios.get(`${API_BASE_URL}profiles/${comment.user}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },

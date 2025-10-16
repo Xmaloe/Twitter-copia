@@ -24,7 +24,7 @@ function Login({ isLoginOpen, setIsLoginOpen }: MenuType) {
 
     const loginAsync = async () => {
       try {
-        const res = await axios.post(`${API_BASE_URL}/login/`, {
+        const res = await axios.post(`${API_BASE_URL}login/`, {
           username: username,
           password: password,
           token: localStorage.getItem("token"),

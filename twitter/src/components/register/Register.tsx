@@ -25,7 +25,7 @@ function Register({ isMenuOpen, setIsMenuOpen }: MenuType) {
 
     const createAccountAsync = async () => {
       try {
-        const res = await axios.post(`${API_BASE_URL}/register/`, {
+        const res = await axios.post(`${API_BASE_URL}register/`, {
           username: username,
           email: email,
           password: password,

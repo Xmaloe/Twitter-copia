@@ -43,13 +43,13 @@ function ReadPost() {
     const fetchReplies = async () => {
       try {
         const [postsRes, repliesRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/posts/${postId}`, {
+          axios.get(`${API_BASE_URL}posts/${postId}`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
 
-          axios.get(`${API_BASE_URL}/replies/`, {
+          axios.get(`${API_BASE_URL}replies/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
@@ -71,24 +71,24 @@ function ReadPost() {
       try {
         const [userRes, postRes, repliesRes, publisherRes] = await Promise.all([
           axios.get(
-            `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`,
+            `${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`,
             {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
             }
           ),
-          axios.get(`${API_BASE_URL}/posts/${postId}/`, {
+          axios.get(`${API_BASE_URL}posts/${postId}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
-          axios.get(`${API_BASE_URL}/replies/`, {
+          axios.get(`${API_BASE_URL}replies/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
-          axios.get(`${API_BASE_URL}/profiles/${Number(userId)}/`, {
+          axios.get(`${API_BASE_URL}profiles/${Number(userId)}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
@@ -132,7 +132,7 @@ function ReadPost() {
         try {
           await Promise.all([
             axios.patch(
-              `${API_BASE_URL}/posts/${postId}/`,
+              `${API_BASE_URL}posts/${postId}/`,
               { likes: updatedLikes },
               {
                 headers: {
@@ -141,7 +141,7 @@ function ReadPost() {
               }
             ),
             axios.patch(
-              `${API_BASE_URL}/profiles/${state.userInfo.id}/`,
+              `${API_BASE_URL}profiles/${state.userInfo.id}/`,
               { posts_liked: updatedPostsLiked },
               {
                 headers: {
@@ -152,17 +152,17 @@ function ReadPost() {
           ]);
 
           const [postRes, publisherRes, userRes] = await Promise.all([
-            axios.get(`${API_BASE_URL}/posts/${postId}`, {
+            axios.get(`${API_BASE_URL}posts/${postId}`, {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
             }),
-            axios.get(`${API_BASE_URL}/profiles/${userId}`, {
+            axios.get(`${API_BASE_URL}profiles/${userId}`, {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
             }),
-            axios.get(`${API_BASE_URL}/profiles/${state.userInfo.id}`, {
+            axios.get(`${API_BASE_URL}profiles/${state.userInfo.id}`, {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
@@ -212,7 +212,7 @@ function ReadPost() {
             }
           ),
 
-          axios.get(`${API_BASE_URL}/posts/${postId}/`, {
+          axios.get(`${API_BASE_URL}posts/${postId}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
@@ -231,7 +231,7 @@ function ReadPost() {
   const deletePost = async () => {
     try {
       await Promise.all([
-        axios.delete(`${API_BASE_URL}/posts/${postId}/`, {
+        axios.delete(`${API_BASE_URL}posts/${postId}/`, {
           headers: {
             Authorization: `Token ${localStorage.getItem("token")}`,
           },

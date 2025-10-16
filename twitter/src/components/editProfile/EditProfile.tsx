@@ -80,7 +80,7 @@ function EditProfile({ isEditOpen, setIsEditOpen }: Prop) {
 
         try {
           await Promise.all([
-            axios.patch(`${API_BASE_URL}/profiles/${userId}/`, formData, {
+            axios.patch(`${API_BASE_URL}profiles/${userId}/`, formData, {
               headers: {
                 "Content-type": "multipart/form-data",
                 Authorization: `Token ${localStorage.getItem("token")}`,
@@ -105,7 +105,7 @@ function EditProfile({ isEditOpen, setIsEditOpen }: Prop) {
     const fetchUserInfo = async () => {
       try {
         const [userRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/profiles/${userId}`, {
+          axios.get(`${API_BASE_URL}profiles/${userId}`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },

@@ -57,7 +57,7 @@ function CreateNewPost() {
         }
 
         try {
-          await axios.post(`${API_BASE_URL}/posts/`, formData, {
+          await axios.post(`${API_BASE_URL}posts/`, formData, {
             headers: {
               "Content-Type": "multipart/form-data",
               Authorization: `Token ${localStorage.getItem("token")}`,
@@ -80,7 +80,7 @@ function CreateNewPost() {
     const fetchUserInfo = async () => {
       try {
         await axios
-          .get(`${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`, {
+          .get(`${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
@@ -101,7 +101,7 @@ function CreateNewPost() {
       try {
         await axios
           .patch(
-            `${API_BASE_URL}/profiles/${userInfo.user}/`,
+            `${API_BASE_URL}profiles/${userInfo.user}/`,
             {
               user: userInfo.user,
               id: userInfo.id,

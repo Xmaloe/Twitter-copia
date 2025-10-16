@@ -33,24 +33,24 @@ function UserProfile() {
       try {
         const [userRes, postsRes, repliesRes, ownerRes] = await Promise.all([
           axios.get(
-            `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`,
+            `${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`,
             {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
             }
           ),
-          axios.get(`${API_BASE_URL}/posts/`, {
+          axios.get(`${API_BASE_URL}posts/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
-          axios.get(`${API_BASE_URL}/replies/`, {
+          axios.get(`${API_BASE_URL}replies/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
-          axios.get(`${API_BASE_URL}/profiles/${Number(userId)}/`, {
+          axios.get(`${API_BASE_URL}profiles/${Number(userId)}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
@@ -82,14 +82,14 @@ function UserProfile() {
         try {
           const [userRes, ownerRes] = await Promise.all([
             axios.get(
-              `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}`,
+              `${API_BASE_URL}profiles/${localStorage.getItem("userId")}`,
               {
                 headers: {
                   Authorization: `Token ${localStorage.getItem("token")}`,
                 },
               }
             ),
-            axios.get(`${API_BASE_URL}/profiles/${Number(userId)}`, {
+            axios.get(`${API_BASE_URL}profiles/${Number(userId)}`, {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
               },
@@ -123,7 +123,7 @@ function UserProfile() {
     try {
       await Promise.all([
         axios.patch(
-          `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`,
+          `${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`,
           {
             following_ids: updatedList,
           },
@@ -135,7 +135,7 @@ function UserProfile() {
         ),
 
         axios.patch(
-          `${API_BASE_URL}/profiles/${Number(userId)}/`,
+          `${API_BASE_URL}profiles/${Number(userId)}/`,
           {
             followers_ids: updatedListOwner,
           },
@@ -149,7 +149,7 @@ function UserProfile() {
 
       const [userRes, ownerRes] = await Promise.all([
         axios.get(
-          `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}/`,
+          `${API_BASE_URL}profiles/${localStorage.getItem("userId")}/`,
           {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
@@ -157,7 +157,7 @@ function UserProfile() {
           }
         ),
 
-        axios.get(`${API_BASE_URL}/profiles/${Number(userId)}`, {
+        axios.get(`${API_BASE_URL}profiles/${Number(userId)}`, {
           headers: {
             Authorization: `Token ${localStorage.getItem("token")}`,
           },

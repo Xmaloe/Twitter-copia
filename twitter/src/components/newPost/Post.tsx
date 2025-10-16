@@ -24,14 +24,14 @@ function Post({ item }: PostApi) {
     const fetchUserInfo = async () => {
       try {
         const [publisherRes, userRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/profiles/${item.profile}/`, {
+          axios.get(`${API_BASE_URL}profiles/${item.profile}/`, {
             headers: {
               Authorization: `Token ${localStorage.getItem("token")}`,
             },
           }),
 
           axios.get(
-            `${API_BASE_URL}/profiles/${localStorage.getItem("userId")}`,
+            `${API_BASE_URL}profiles/${localStorage.getItem("userId")}`,
             {
               headers: {
                 Authorization: `Token ${localStorage.getItem("token")}`,
@@ -59,7 +59,7 @@ function Post({ item }: PostApi) {
       try {
         await Promise.all([
           axios.patch(
-            `${API_BASE_URL}/posts/${item.id}/`,
+            `${API_BASE_URL}posts/${item.id}/`,
             {
               views: item.views + 1,
             },
@@ -71,7 +71,7 @@ function Post({ item }: PostApi) {
           ),
 
           axios.patch(
-            `${API_BASE_URL}/profiles/${state.publisherInfo.id}/`,
+            `${API_BASE_URL}profiles/${state.publisherInfo.id}/`,
             {
               posts_visited: updatedList,
             },
