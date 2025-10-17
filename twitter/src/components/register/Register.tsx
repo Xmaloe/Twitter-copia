@@ -3,6 +3,8 @@ import * as S from "./styles";
 import axios from "axios";
 import API_BASE_URL from "../../config/api";
 
+console.log("API_BASE_URL:", import.meta.env.VITE_API_BASE_URL);
+
 type MenuType = {
   isMenuOpen: boolean;
   setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
