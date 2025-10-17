@@ -128,7 +128,8 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "https://twitter-copia-h1oo-git-main-xmaloes-projects.vercel.app",
     "https://twitter-copia-frontend.onrender.com",
-    "https://twitter-copia-h1oo-dkz0826xx-xmaloes-projects.vercel.app",
+    "https://twitter-copia-h1oo.vercel.app",
+    "https://twitter-copia-one.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
